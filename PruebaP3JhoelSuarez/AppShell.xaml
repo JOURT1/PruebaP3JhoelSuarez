@@ -8,11 +8,11 @@
     Title="PruebaP3JhoelSuarez">
 
     <TabBar>
-        <Tab Title="Buscador de Países"
+        <Tab Title="Buscador de Peliculas"
             Icon="mundo.png">
             <ShellContent ContentTemplate="{DataTemplate local:APIJsuarez}" />
         </Tab>
-        <Tab Title="Países Consultados"
+        <Tab Title="Peliculas Consultadas"
             Icon="bdd.png">
             <ShellContent ContentTemplate="{DataTemplate local:BDDJsuarez}" />
         </Tab>

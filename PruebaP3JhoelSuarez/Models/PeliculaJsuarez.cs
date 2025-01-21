@@ -14,6 +14,7 @@ namespace PruebaP3JhoelSuarez.Models
 
         public string PeliculaName { get; set; }
         public string Genero { get; set; }
+        public string ActorPrincipal{ get; set; }
         public string Awards { get; set; }
         public string Website { get; set; }
         public string Jsuarez_NombreBD { get; set; }

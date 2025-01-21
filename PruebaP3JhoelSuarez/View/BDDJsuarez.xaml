@@ -20,6 +20,14 @@
                                     <Label Text="{Binding Genero}" Style="{StaticResource BaseStyle}" />
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
+                                    <Label Text="Actor Principal: " Style="{StaticResource BaseStyle}" />
+                                    <Label Text="{Binding ActorPrincipal}" Style="{StaticResource BaseStyle}" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Awards: " Style="{StaticResource BaseStyle}" />
+                                    <Label Text="{Binding Awards}" Style="{StaticResource BaseStyle}" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
                                     <Label Text="Website: " Style="{StaticResource BaseStyle}" />
                                     <Label Text="{Binding Website}"
                                            TextColor="LightBlue"

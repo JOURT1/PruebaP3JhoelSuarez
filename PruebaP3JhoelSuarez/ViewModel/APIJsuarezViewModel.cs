@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -54,33 +55,29 @@ namespace PruebaP3JhoelSuarez.ViewModel
                 try
                 {
                     var response = await client.GetStringAsync(url);
-
-                    // Deserializar la respuesta como una lista de objetos dinámicos
                     var peliculas = JsonConvert.DeserializeObject<List<dynamic>>(response);
 
                     if (peliculas != null && peliculas.Count > 0)
                     {
-                        // Extraer la primera película de la lista
                         var pelicula = peliculas[0];
 
-                        // Mapear los datos a un nuevo objeto PeliculaJsuarez
                         var nuevoPelicula = new PeliculaJsuarez
                         {
-                            PeliculaName = pelicula.title, // Mapeo de 'title' a 'PeliculaName'
-                            Genero = string.Join(", ", pelicula.genre), // Combinar géneros en un string
-                            Awards = pelicula.awards, // Mapeo de 'awards'
-                            Website = pelicula.website, // Mapeo de 'website'
-                            Jsuarez_NombreBD = "Jsuarez" // Valor predeterminado
+                            PeliculaName = pelicula.title,
+                            Genero = pelicula.genre?.Count > 0 ? pelicula.genre[0] : "N/A",
+                            ActorPrincipal = pelicula.actors?.Count > 0 ? pelicula.actors[0] : "N/A",
+                            Awards = pelicula.awards ?? "N/A",
+                            Website = pelicula.website ?? "N/A",
+                            Jsuarez_NombreBD = "Jsuarez"
                         };
 
-                        // Formatear el resultado para mostrar en la interfaz
                         Resultado =
-                            $"Nombre de la Película: {nuevoPelicula.PeliculaName}\n" +
+                            $"Título: {nuevoPelicula.PeliculaName}\n" +
                             $"Género: {nuevoPelicula.Genero}\n" +
-                            $"Premios: {nuevoPelicula.Awards}\n" +
+                            $"Actor Principal: {nuevoPelicula.ActorPrincipal}\n" +
+                            $"Awards: {nuevoPelicula.Awards}\n" +
                             $"Sitio Web: {nuevoPelicula.Website}\n";
 
-                        // Guardar en la base de datos
                         await _databaseService.SavePeliculaAsync(nuevoPelicula);
                     }
                     else
@@ -94,7 +91,6 @@ namespace PruebaP3JhoelSuarez.ViewModel
                 }
             }
         }
-
 
         private void Limpiar()
         {
