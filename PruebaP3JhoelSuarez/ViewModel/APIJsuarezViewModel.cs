@@ -48,7 +48,7 @@ namespace PruebaP3JhoelSuarez.ViewModel
                 return;
             }
 
-            var url = $"https://freetestapi.com/api/v1/movies?search={PeliculaNombre}?fields=title,genre,awards,website";
+            var url = $"https://freetestapi.com/api/v1/movies?search={PeliculaNombre}";
             using (HttpClient client = new HttpClient())
             {
                 try
