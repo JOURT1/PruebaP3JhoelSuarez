@@ -424,4 +424,62 @@
         <Setter Property="SelectedTabColor" Value="{AppThemeBinding Light={StaticResource Gray950}, Dark={StaticResource Gray200}}" />
     </Style>
 
+
+    <!-- Estilos Generales -->
+    <Style x:Key="BaseStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="LineBreakMode" Value="WordWrap" />
+    </Style>
+
+    <Style x:Key="TitleLabelStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="LineBreakMode" Value="WordWrap" />
+    </Style>
+
+    <Style x:Key="EntryStyle" TargetType="Entry">
+        <Setter Property="BackgroundColor" Value="#1A1A1A" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="PlaceholderColor" Value="#888888" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="HeightRequest" Value="40" />
+    </Style>
+
+    <Style x:Key="ButtonStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="Orange" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="Padding" Value="12" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="HeightRequest" Value="45" />
+    </Style>
+
+    <Style x:Key="FrameStyle" TargetType="Frame">
+        <Setter Property="BorderColor" Value="#3C3C3C" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="Padding" Value="10" />
+        <Setter Property="Margin" Value="10,10" />
+        <Setter Property="BackgroundColor" Value="#2A2A2A" />
+        <Setter Property="HasShadow" Value="True" />
+
+    </Style>
+
+    <Style x:Key="ListViewStyle" TargetType="ListView">
+        <Setter Property="BackgroundColor" Value="#121212" />
+        <Setter Property="SeparatorVisibility" Value="Default" />
+        <Setter Property="Margin" Value="10,0" />
+    </Style>
+
+    <Style TargetType="TabBar">
+        <Setter Property="Shell.TabBarBackgroundColor"
+            Value="Black" />
+        <Setter Property="Shell.TabBarTitleColor"
+            Value="White" />
+        <Setter Property="Shell.TabBarUnselectedColor"
+            Value="AntiqueWhite" />
+    </Style>
+
 </ResourceDictionary>

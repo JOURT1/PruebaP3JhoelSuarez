@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PruebaP3JhoelSuarez.View.APIJsuarez"
+             Title="APIJsuarez"
+             BackgroundColor="#121212">
+    
+    <StackLayout Padding="15">
+        <Entry x:Name="Jsuarez_entry1"
+               Style="{StaticResource EntryStyle}"
+               Placeholder="Nombre de la Pelicula"
+               Text="{Binding PeliculaNombre}" />
+        <Button x:Name="Jsuarez_buttonBuscar"
+                Margin="0,20,0,0"
+                Style="{StaticResource ButtonStyle}"
+                Text="Buscar"
+                Command="{Binding BuscarCommand}" />
+        <Button x:Name="Jsuarez_buttonLimpiar"
+                Margin="0,20,0,0"
+                Style="{StaticResource ButtonStyle}"
+                Text="Limpiar"
+                Command="{Binding LimpiarCommand}" />
+
+        <Frame Style="{StaticResource FrameStyle}"
+               Margin="0,20,0,0"
+               BackgroundColor="#2A2A2A"
+            BorderColor="Orange"
+            HasShadow="True">
+            <Label x:Name="Jsuarez_labelResultado"
+                   Style="{StaticResource TitleLabelStyle}"
+                   Text="{Binding Resultado}" />
+        </Frame>
+    </StackLayout>
+
+</ContentPage>

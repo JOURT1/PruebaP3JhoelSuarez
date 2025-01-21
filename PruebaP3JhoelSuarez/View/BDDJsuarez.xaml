@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PruebaP3JhoelSuarez.View.BDDJsuarez"
+             Title="BDDJsuarez">
+    <ScrollView>
+        <ListView x:Name="Jsuarez_listView"
+                  ItemsSource="{Binding Peliculas}"
+                  Style="{StaticResource ListViewStyle}"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Style="{StaticResource FrameStyle}">
+                            <StackLayout>
+                                <Label Text="{Binding PeliculaName}" Style="{StaticResource TitleLabelStyle}" />
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Genero: " Style="{StaticResource BaseStyle}" />
+                                    <Label Text="{Binding Genero}" Style="{StaticResource BaseStyle}" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Website: " Style="{StaticResource BaseStyle}" />
+                                    <Label Text="{Binding Website}"
+                                           TextColor="LightBlue"
+                                           Style="{StaticResource BaseStyle}"
+                                           TextDecorations="Underline">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Source={x:Reference Jsuarez_listView}, Path=BindingContext.AbrirEnlaceCommand}"
+                                                                  CommandParameter="{Binding Website}" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Nombre: " Style="{StaticResource BaseStyle}" />
+                                    <Label Text="{Binding Jsuarez_NombreBD}" Style="{StaticResource BaseStyle}" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollView>
+</ContentPage>

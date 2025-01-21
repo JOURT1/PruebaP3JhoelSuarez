@@ -1,4 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
+using PruebaP3JhoelSuarez.Interfaces;
+using PruebaP3JhoelSuarez.Repositories;
+using PruebaP3JhoelSuarez.View;
+using PruebaP3JhoelSuarez.ViewModel;
 
 namespace PruebaP3JhoelSuarez
 {
@@ -16,8 +20,14 @@ namespace PruebaP3JhoelSuarez
                 });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
+            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "JsuarezDB.db");
+            builder.Services.AddSingleton<IBDDJsuarez>(s => new BDDJsuarezRepository(dbPath));
+            builder.Services.AddSingleton<APIJsuarezViewModel>();
+            builder.Services.AddSingleton<BDDJsuarezViewModel>();
+            builder.Services.AddSingleton<APIJsuarez>();
+            builder.Services.AddSingleton<BDDJsuarez>();
 
             return builder.Build();
         }
