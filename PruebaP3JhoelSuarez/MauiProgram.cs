@@ -22,7 +22,7 @@ namespace PruebaP3JhoelSuarez
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
-            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "JsuarezDB.db");
+            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "JsuarezBDD.db");
             builder.Services.AddSingleton<IBDDJsuarez>(s => new BDDJsuarezRepository(dbPath));
             builder.Services.AddSingleton<APIJsuarezViewModel>();
             builder.Services.AddSingleton<BDDJsuarezViewModel>();

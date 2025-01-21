@@ -15,7 +15,7 @@ namespace PruebaP3JhoelSuarez.Repositories
 
         public BDDJsuarezRepository(string dbPath)
         {
-            var databasePath = Path.Combine(dbPath, "JsuarezDB.db");
+            var databasePath = Path.Combine(dbPath, "JsuarezBDD.db");
             _database = new SQLiteAsyncConnection(databasePath);
             _database.CreateTableAsync<PeliculaJsuarez>().Wait();
         }
