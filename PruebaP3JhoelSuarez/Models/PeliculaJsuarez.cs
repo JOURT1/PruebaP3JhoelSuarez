@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PruebaP3JhoelSuarez.Models
 {
-    internal class PeliculaJsuarez
+    public class PeliculaJsuarez
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
