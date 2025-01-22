@@ -4,58 +4,50 @@
              x:Class="PruebaP3JhoelSuarez.View.BDDJsuarez"
              Title="BDDJsuarez"
              BackgroundColor="#121212">
-    <Grid RowDefinitions="Auto, *">
-        <Button
-            Text="Actualizar Lista"
-            Command="{Binding ActualizarCommand}"
-            Style="{StaticResource ButtonStyle}"
-            Margin="0,10,0,0"
-            Grid.Row="0" />
-        <ScrollView Grid.Row="1">
-            <ListView x:Name="Jsuarez_listView"
-                      ItemsSource="{Binding Peliculas}"
-                      Style="{StaticResource ListViewStyle}"
-                      HasUnevenRows="True">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Frame Style="{StaticResource FrameStyle}">
-                                <StackLayout>
-                                    <Label Text="{Binding PeliculaName}" Style="{StaticResource TitleLabelStyle}" />
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Genero: " Style="{StaticResource BaseStyle}" />
-                                        <Label Text="{Binding Genero}" Style="{StaticResource BaseStyle}" />
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Actor Principal: " Style="{StaticResource BaseStyle}" />
-                                        <Label Text="{Binding ActorPrincipal}" Style="{StaticResource BaseStyle}" />
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Awards: " Style="{StaticResource BaseStyle}" />
-                                        <Label Text="{Binding Awards}" Style="{StaticResource BaseStyle}" />
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Website: " Style="{StaticResource BaseStyle}" />
-                                        <Label Text="{Binding Website}"
-                                               TextColor="LightBlue"
-                                               Style="{StaticResource BaseStyle}"
-                                               TextDecorations="Underline">
-                                            <Label.GestureRecognizers>
-                                                <TapGestureRecognizer Command="{Binding Source={x:Reference Jsuarez_listView}, Path=BindingContext.AbrirEnlaceCommand}"
-                                                                      CommandParameter="{Binding Website}" />
-                                            </Label.GestureRecognizers>
-                                        </Label>
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Nombre: " Style="{StaticResource BaseStyle}" />
-                                        <Label Text="{Binding Jsuarez_NombreBD}" Style="{StaticResource BaseStyle}" />
-                                    </StackLayout>
+    <ScrollView>
+        <ListView x:Name="Jsuarez_listView"
+                  ItemsSource="{Binding Peliculas}"
+                  Style="{StaticResource ListViewStyle}"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Style="{StaticResource FrameStyle}">
+                            <StackLayout>
+                                <Label Text="{Binding PeliculaName}" Style="{StaticResource TitleLabelStyle}" />
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Genero: " Style="{StaticResource BaseStyle}" />
+                                    <Label Text="{Binding Genero}" Style="{StaticResource BaseStyle}" />
                                 </StackLayout>
-                            </Frame>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </ScrollView>
-    </Grid>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Actor Principal: " Style="{StaticResource BaseStyle}" />
+                                    <Label Text="{Binding ActorPrincipal}" Style="{StaticResource BaseStyle}" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Awards: " Style="{StaticResource BaseStyle}" />
+                                    <Label Text="{Binding Awards}" Style="{StaticResource BaseStyle}" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Website: " Style="{StaticResource BaseStyle}" />
+                                    <Label Text="{Binding Website}"
+                                           TextColor="LightBlue"
+                                           Style="{StaticResource BaseStyle}"
+                                           TextDecorations="Underline">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Source={x:Reference Jsuarez_listView}, Path=BindingContext.AbrirEnlaceCommand}"
+                                                                  CommandParameter="{Binding Website}" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Nombre: " Style="{StaticResource BaseStyle}" />
+                                    <Label Text="{Binding Jsuarez_NombreBD}" Style="{StaticResource BaseStyle}" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollView>
 </ContentPage>

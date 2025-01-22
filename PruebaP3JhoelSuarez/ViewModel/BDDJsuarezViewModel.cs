@@ -28,7 +28,7 @@ namespace PruebaP3JhoelSuarez.ViewModel
         public async Task AgregarPelicula(PeliculaJsuarez nuevaPelicula)
         {
             await _databaseService.SavePeliculaAsync(nuevaPelicula);
-            await CargarPeliculas();
+            await CargarPeliculas(); 
         }
 
         public async Task CargarPeliculas()
@@ -52,5 +52,6 @@ namespace PruebaP3JhoelSuarez.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string name = null) =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+
     }
 }
