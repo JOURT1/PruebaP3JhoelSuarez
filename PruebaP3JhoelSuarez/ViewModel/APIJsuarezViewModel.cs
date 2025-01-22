@@ -61,7 +61,7 @@ namespace PruebaP3JhoelSuarez.ViewModel
                     {
                         var pelicula = peliculas[0];
 
-                        var nuevoPelicula = new PeliculaJsuarez
+                        var nuevaPelicula = new PeliculaJsuarez
                         {
                             PeliculaName = pelicula.title,
                             Genero = pelicula.genre?.Count > 0 ? pelicula.genre[0] : "N/A",
@@ -71,14 +71,19 @@ namespace PruebaP3JhoelSuarez.ViewModel
                             Jsuarez_NombreBD = "Jsuarez"
                         };
 
-                        Resultado =
-                            $"Título: {nuevoPelicula.PeliculaName}\n" +
-                            $"Género: {nuevoPelicula.Genero}\n" +
-                            $"Actor Principal: {nuevoPelicula.ActorPrincipal}\n" +
-                            $"Awards: {nuevoPelicula.Awards}\n" +
-                            $"Sitio Web: {nuevoPelicula.Website}\n";
+                        await _databaseService.SavePeliculaAsync(nuevaPelicula);
 
-                        await _databaseService.SavePeliculaAsync(nuevoPelicula);
+                        // Notifica al listado para que se actualice.
+                        var listaViewModel = new BDDJsuarezViewModel(_databaseService);
+                        await listaViewModel.CargarPeliculas();
+
+                        Resultado =
+                            $"Título: {nuevaPelicula.PeliculaName}\n" +
+                            $"Género: {nuevaPelicula.Genero}\n" +
+                            $"Actor Principal: {nuevaPelicula.ActorPrincipal}\n" +
+                            $"Awards: {nuevaPelicula.Awards}\n" +
+                            $"Sitio Web: {nuevaPelicula.Website}\n" +
+                            $"Nombre: {nuevaPelicula.Jsuarez_NombreBD}\n";
                     }
                     else
                     {

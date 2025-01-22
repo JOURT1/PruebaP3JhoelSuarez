@@ -9,4 +9,5 @@ public partial class BDDJsuarez : ContentPage
 		InitializeComponent();
         BindingContext = new BDDJsuarezViewModel(App.Database);
     }
+
 }

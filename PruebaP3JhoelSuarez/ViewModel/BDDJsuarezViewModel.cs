@@ -28,7 +28,13 @@ namespace PruebaP3JhoelSuarez.ViewModel
             CargarPeliculas();
         }
 
-        private async Task CargarPeliculas()
+        public async Task AgregarPelicula(PeliculaJsuarez nuevaPelicula)
+        {
+            await _databaseService.SavePeliculaAsync(nuevaPelicula);
+            await CargarPeliculas();
+        }
+
+        public async Task CargarPeliculas()
         {
             var peliculas = await _databaseService.GetPeliculasAsync();
             Peliculas.Clear();
@@ -37,6 +43,7 @@ namespace PruebaP3JhoelSuarez.ViewModel
                 Peliculas.Add(pelicula);
             }
         }
+
 
         private async Task AbrirEnlace(string url)
         {
