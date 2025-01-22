@@ -1,12 +1,8 @@
 ﻿using PruebaP3JhoelSuarez.Interfaces;
 using PruebaP3JhoelSuarez.Models;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -15,6 +11,7 @@ namespace PruebaP3JhoelSuarez.ViewModel
     public class BDDJsuarezViewModel : INotifyPropertyChanged
     {
         public ObservableCollection<PeliculaJsuarez> Peliculas { get; } = new();
+
         private readonly IBDDJsuarez _databaseService;
 
         public ICommand ActualizarCommand { get; }
@@ -43,7 +40,6 @@ namespace PruebaP3JhoelSuarez.ViewModel
                 Peliculas.Add(pelicula);
             }
         }
-
 
         private async Task AbrirEnlace(string url)
         {

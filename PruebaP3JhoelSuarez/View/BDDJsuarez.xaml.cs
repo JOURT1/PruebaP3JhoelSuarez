@@ -4,9 +4,9 @@ namespace PruebaP3JhoelSuarez.View;
 
 public partial class BDDJsuarez : ContentPage
 {
-	public BDDJsuarez()
-	{
-		InitializeComponent();
+    public BDDJsuarez()
+    {
+        InitializeComponent();
         BindingContext = new BDDJsuarezViewModel(App.Database);
     }
 

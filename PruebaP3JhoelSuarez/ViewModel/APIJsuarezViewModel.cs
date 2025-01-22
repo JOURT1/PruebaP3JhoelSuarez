@@ -73,10 +73,6 @@ namespace PruebaP3JhoelSuarez.ViewModel
 
                         await _databaseService.SavePeliculaAsync(nuevaPelicula);
 
-                        // Notifica al listado para que se actualice.
-                        var listaViewModel = new BDDJsuarezViewModel(_databaseService);
-                        await listaViewModel.CargarPeliculas();
-
                         Resultado =
                             $"Título: {nuevaPelicula.PeliculaName}\n" +
                             $"Género: {nuevaPelicula.Genero}\n" +
